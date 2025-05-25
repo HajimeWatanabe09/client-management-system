@@ -1,0 +1,26 @@
+# OS関連
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# PHP / XAMPP関連
+*.log
+*.tmp
+*.bak
+*.env
+*.sqlite
+*.db
+*.lock
+
+# PowerShellテンポラリ
+*.ps1~*
+*.ps1xml
+
+# IDE / エディタ
+.vscode/
+.idea/
+.history/
+
+# その他
+node_modules/
+vendor/
