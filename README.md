@@ -55,11 +55,12 @@ ITインフラの構築・ユーザーアカウント管理・Webフォーム運
 
 ## 🖥️ 画面キャプチャ
 
-| 項目 | 説明 | ファイル |
-|------|------|----------|
-| 登録フォーム | ユーザー情報を入力する画面 | `docs/ss_php_register_form_display.jpg` |
-| 登録処理 | 登録時の編集フォーム画面 | `docs/ss_php_register_submit_edit.jpg` |
-| 一覧画面 | 登録済みユーザーの表示画面 | `docs/ss_php_user_list_display.jpg` |
+| 項目 | サムネイル | 説明 |
+|------|------------|------|
+| 登録フォーム | [<img src="docs/ss_php_register_form_display.jpg" alt="登録フォーム" width="300">](docs/ss_php_register_form_display.jpg) | ユーザー情報を入力する画面 |
+| 登録処理結果 | [<img src="docs/ss_php_register_submit_result.jpg" alt="登録処理結果" width="300">](docs/ss_php_register_submit_result.jpg) | 登録完了後の画面またはリスト反映 |
+| 一覧画面 | [<img src="docs/ss_php_user_list_display.jpg" alt="一覧画面" width="300">](docs/ss_php_user_list_display.jpg) | 登録済みユーザーを一覧表示 |
+
 
 ---
 
