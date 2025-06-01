@@ -1,6 +1,6 @@
 # クライアント管理システム構築デモ（Windows Server + Apache + PHP/MySQL + AD DS）
 
-本リポジトリは、**Windows Server 環境と LAMP構成を用いたクライアント管理業務の技術デモ**です。  
+このリポジトリは、**Windows Server 環境と LAMP構成を用いたクライアント管理業務の技術デモ**です。  
 ITインフラ構築・アカウント管理・Webフォーム運用のスキルを総合的に証明することを目的とし、応募用ポートフォリオとして構成しています。
 
 ---
@@ -11,6 +11,18 @@ ITインフラ構築・アカウント管理・Webフォーム運用のスキル
 - Active Directory によるユーザー管理と GPO 運用
 - Apache + PHP + MariaDB による社内向けフォームの実装
 - GitHub リポジトリ上で構成・コード・画面の履歴を公開
+
+---
+
+## 🖼️ システム構成図
+
+本システムは以下により構築されています：
+
+![システム構成図（3層構造）](docs/diagram_3layer.png)
+
+- **ユーザー層**（UI）：Webブラウザによるフォーム操作
+- **アプリケーション層**：PHPスクリプトによる処理
+- **データベース層**：MariaDBによるデータ管理
 
 ---
 
@@ -39,14 +51,13 @@ ITインフラ構築・アカウント管理・Webフォーム運用のスキル
 
 ---
 
-## 🖼️ スクリーンショット・構成図
+## 🖥️ スクリーンショット
 
 | 項目 | ファイル名 |
 |------|------------|
 | 登録フォーム | `docs/ss_php_register_form_display.jpg` |
 | 登録処理 | `docs/ss_php_register_submit_edit.jpg` |
 | 一覧画面 | `docs/ss_php_user_list_display.jpg` |
-| 構成図（Mermaid） | `docs/system-diagram.png`（予定） |
 
 ---
 
@@ -60,8 +71,8 @@ ITインフラ構築・アカウント管理・Webフォーム運用のスキル
 
 ## ▶️ 実行・確認方法（任意）
 
-1. `register.php` にアクセス → ユーザー情報を入力
-2. `register_submit.php` にて登録 → `list.php` で確認
+1. `register.php` にアクセス → ユーザー情報を入力  
+2. `register_submit.php` にて登録 → `list.php` で確認  
 3. DBは `userdb.users` を使用（構成は `server-config/mysql-init.sql` に記載予定）
 
 ---
@@ -75,4 +86,4 @@ ITインフラ構築・アカウント管理・Webフォーム運用のスキル
 
 ## 🗂️ ライセンス・利用
 
-本リポジトリはポートフォリオ目的で公開しており、再利用・改変は自由です
+本リポジトリはポートフォリオ目的で公開しており、再利用・改変は自由です。
