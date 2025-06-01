@@ -1,28 +1,39 @@
 # クライアント管理システム構築デモ（Windows Server + Apache + PHP/MySQL + AD DS）
 
-このリポジトリは、**Windows Server 環境と LAMP構成を用いたクライアント管理業務の技術デモ**です。  
-ITインフラ構築・アカウント管理・Webフォーム運用のスキルを総合的に証明することを目的とし、応募用ポートフォリオとして構成しています。
+このリポジトリは、**Windows Server 環境と Webアプリケーション構成（Apache + PHP + MySQL）を用いたクライアント管理システムの構築デモ**です。  
+ITインフラ構築、ユーザーアカウント管理、Webフォームの作成・運用といったスキルを実証することを目的とし、**転職活動用ポートフォリオ**として設計しています。
 
 ---
 
 ## 📌 概要
 
 - 仮想環境（Hyper-V）上に Windows Server 2022 を構築
-- Active Directory によるユーザー管理と GPO 運用
-- Apache + PHP + MariaDB による社内向けフォームの実装
-- GitHub リポジトリ上で構成・コード・画面の履歴を公開
+- Active Directory によるユーザーアカウントの集中管理とポリシー制御（GPO）
+- Apache + PHP + MariaDB による社内向けWebフォームの実装
+- GitHub 上で構成・コード・動作確認の履歴を公開
 
 ---
 
 ## 🖼️ システム構成図
 
-本システムは以下により構築されています：
+### 🔹① 処理構造の全体像（3層構造）
 
+<<<<<<< HEAD
 ![システム構成図（3層構造）](docs/system_diagram_3layer.png)
+=======
+この図は、本システムが「ユーザー層」「アプリケーション層」「データベース層」で役割分担されていることを示しています。処理の流れを明確に把握できるよう、典型的な三層アーキテクチャに基づいて構成しています。
+>>>>>>> 226c1e3 (READMEを整理し、構成図を追加)
 
-- **ユーザー層**（UI）：Webブラウザによるフォーム操作
-- **アプリケーション層**：PHPスクリプトによる処理
-- **データベース層**：MariaDBによるデータ管理
+<img src="docs/system_diagram_3layer.png" width="70%">
+
+---
+
+### 🔹② 実装要素と構成（アイコン形式）
+
+こちらは、実際に構築したシステム内の**構成要素（ADサーバー、Webサーバー、DB、クライアントPCなど）とその関係性**を、視覚的に把握できるようにした図です。  
+ITインフラの全体像をイメージしやすいよう、各要素をアイコンで表現しています。
+
+<img src="docs/system-diagram-icons.png" width="70%">
 
 ---
 
@@ -42,48 +53,48 @@ ITインフラ構築・アカウント管理・Webフォーム運用のスキル
 
 | ディレクトリ | 内容 |
 |--------------|------|
-| `user-portal/` | PHPフォーム（register, submit, list） |
-| `server-config/` | Apache/PHP/MySQLの設定 |
-| `ad-config/` | PowerShellスクリプト（ADユーザー、GPO） |
+| `user-portal/` | PHPフォーム一式（ユーザー登録・一覧表示） |
+| `server-config/` | Apache, PHP, MySQL の初期設定スクリプトなど |
+| `ad-config/` | Active Directory用 PowerShellスクリプト（ユーザー登録・GPO適用） |
 | `docs/` | スクリーンショット・構成図 |
-| `operations-log.md` | 作業補足・検証記録 |
-| `.gitignore` | 管理対象外ファイル指定 |
+| `operations-log.md` | 操作ログや動作検証の補足記録 |
+| `.gitignore` | Gitで追跡しないファイルを定義 |
 
 ---
 
 ## 🖥️ スクリーンショット
 
-| 項目 | ファイル名 |
-|------|------------|
-| 登録フォーム | `docs/ss_php_register_form_display.jpg` |
-| 登録処理 | `docs/ss_php_register_submit_edit.jpg` |
-| 一覧画面 | `docs/ss_php_user_list_display.jpg` |
+| 表示内容 | ファイル名 |
+|----------|------------|
+| ユーザー登録フォーム画面 | `docs/ss_php_register_form_display.jpg` |
+| 登録処理画面（編集後） | `docs/ss_php_register_submit_edit.jpg` |
+| ユーザー一覧表示画面 | `docs/ss_php_user_list_display.jpg` |
 
 ---
 
-## ✅ 機能確認済み内容
+## ✅ 動作確認項目
 
-- `phpinfo()` による Apache/PHP動作確認
-- ユーザー登録フォームからDBへの登録処理
-- AD配下クライアントPCからのドメインログオン成功
+- Apache/PHPの動作確認：`phpinfo()` による確認済み
+- フォーム入力 → DB登録処理が正常に完了することを確認
+- クライアントPC（ドメイン参加済）からのログオン成功を確認済み
 
 ---
 
-## ▶️ 実行・確認方法（任意）
+## ▶️ 実行手順（任意で再現可能）
 
-1. `register.php` にアクセス → ユーザー情報を入力  
-2. `register_submit.php` にて登録 → `list.php` で確認  
-3. DBは `userdb.users` を使用（構成は `server-config/mysql-init.sql` に記載予定）
+1. `register.php` にブラウザでアクセス → ユーザー情報を入力  
+2. `register_submit.php` にて登録 → `list.php` にユーザーが一覧表示されることを確認  
+3. 登録された情報は `userdb.users` テーブルに格納（初期スキーマは `server-config/mysql-init.sql` を参照）
 
 ---
 
 ## 📎 備考
 
-- 本構成は XAMPP 環境上でのローカル動作を前提としています
-- 応募用のシステムデモとして、実務経験とスキルを伝えるために最小構成で再現しています
+- 本システムは、XAMPP 上でのローカル運用を前提とした設計です
+- 実務経験の補足資料として、検証しやすい最小限の構成で構築しています
 
 ---
 
 ## 🗂️ ライセンス・利用
 
-本リポジトリはポートフォリオ目的で公開しており、再利用・改変は自由です。
+本リポジトリはポートフォリオ提出を目的としており、**複製・再利用・改変は自由**です。
