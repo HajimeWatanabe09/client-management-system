@@ -85,7 +85,23 @@ ITインフラの構築・ユーザーアカウント管理・Webフォーム運
 ## 📎 補足・備考
 
 - 本システムはローカルの XAMPP 環境を前提としています
-- 応募用に最小限の機能を再現し、インフラ運用・システム管理の経験を証明する構成としています
+- 応募用に最小限の機能を再現し、インフラ運用・システム管理の経験を証明する構成としています---
+
+## 🐧 LinuxクライアントのADドメイン参加（Ubuntu）
+
+Ubuntu 22.04 クライアントを Active Directory に `realm` コマンドで参加させ、  
+Windows Server 側からもコンピュータとして認識できることを確認しました。
+
+- 参加方法：`realm join`（SSSD + Kerberos を利用）
+- 検証環境：Windows Server 2022（AD DS）、Ubuntu 22.04
+- 使用DNS：192.168.1.10（ADドメインコントローラ）
+
+#### 🔍 確認手順
+
+```bash
+$ realm list
+$ id Administrator@ad.mssoft.local
+
 
 ---
 
